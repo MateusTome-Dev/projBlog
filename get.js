@@ -1,7 +1,7 @@
 
     const btnLoadMore = document.getElementById("btnLoadMore");
-    const cardContainer = document.getElementById("cardContainer");
-    const token = localStorage.getItem=token; 
+    const cardContainer = document.getElementById("image");
+
     let currentPage = 0; 
     const cardsPerPage = 10;
   
@@ -11,20 +11,21 @@
       fetch(`http://10.92.198.38:8080/feed/get?page=${currentPage}&limit=${cardsPerPage}`, {
         method: "GET",
         headers: {
-          Authorization: `Bearer ${token}`,
+          
         },
       })
       .then((result) => result.json())
       .then((data) => {
         console.log(data);
-        if (data.length === 0) {
+        const posts =  data.posts;
+        if (posts.length === 0) {
           alert("No more cards to load");
           btnLoadMore.disabled = true;
           return;
         }
   
         
-        data.forEach(card => {
+        posts.forEach(card => {
           const cardElement = document.createElement("div");
           cardElement.className=("card")
           cardElement.classList.add("card");

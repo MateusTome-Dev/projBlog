@@ -31,7 +31,9 @@ button.addEventListener("click", function(event) {
       .then((result) => {
         return result.json(); // Adicionando o retorno aqui
       })
-      .then((data) => console.log(data))
+      .then((data) => {
+        window.location.href = "index.html";
+      })
       .catch((err) => {
           console.log(err)
       });
@@ -73,3 +75,4 @@ button1.addEventListener("click", function(event) {
     console.log(err);
   });
 });
+

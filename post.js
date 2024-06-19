@@ -1,4 +1,5 @@
-  document.getElementById("imageInput")
+document
+  .getElementById("imageInput")
   .addEventListener("change", function (event) {
     const file = event.target.files[0];
     if (file) {
@@ -41,4 +42,3 @@ form.addEventListener("submit", function (e) {
 
     .catch((err) => console.log(err));
 });
-
